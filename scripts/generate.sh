@@ -57,7 +57,7 @@ RUN if [ \$(grep 'VERSION_ID="8"' /etc/os-release) ] ; then \\
     apt-get -y install oracle-java8-installer \\
 ; elif [ \$(grep 'VERSION_ID="16.04"' /etc/os-release) ] ; then \\
     apt-get update && \\
-    apt-get install default-jre\\
+    apt-get -y install default-jre\\
 ; fi
 EOF
 fi
