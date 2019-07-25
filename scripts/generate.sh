@@ -131,9 +131,12 @@ fi
 
 # Set up user
 if [ ! -e $USER ] ; then
-    echo "RUN groupadd --gid 3434 $USER \
+    # Setup sudo user 
+    echo "RUN apt-get install sudo \
+      && groupadd --gid 3434 $USER \
       && useradd --uid 3434 --gid $USER --shell /bin/bash --create-home $USER \
       && echo '$USER ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-$USER"
+    # Use user
     echo "USER $USER"
 fi
 
