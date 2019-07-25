@@ -38,6 +38,9 @@ case "$LINUX_VERSION" in
 esac
 
 read -r -p "
+Name your user, or hit enter for root user: " USER
+
+read -r -p "
 Pick a Ruby version from https://cache.ruby-lang.org/pub/ruby (i.e., 2.4.2, etc.), or hit enter to skip installing Ruby
 : " RUBY_VERSION_NUM
 

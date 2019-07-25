@@ -128,3 +128,12 @@ RUN apt-get -y install libgconf-2-4 \
   && mv chromedriver /usr/local/bin/chromedriver \
   && chmod +x /usr/local/bin/chromedriver"
 fi
+
+# Set up user
+if [ ! -e $USER ] ; then
+    echo "RUN groupadd --gid 3434 $USER \
+      && useradd --uid 3434 --gid $USER --shell /bin/bash --create-home $USER \
+      && echo '$USER ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-$USER \
+      && echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep"
+    echo "USER $USER"
+
